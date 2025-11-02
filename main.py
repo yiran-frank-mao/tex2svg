@@ -14,6 +14,7 @@ def latex_to_svg(latex_snippet: str):
     Returns:
         The SVG content as a string.
     """
+    latex_snippet = latex_snippet.replace("\\n", " ").strip()
     with open("template.tex", "r") as f:
         template = f.read()
 
