@@ -1,6 +1,7 @@
 import subprocess
 import tempfile
 import os
+import argparse
 
 def latex_to_svg(latex_snippet):
     """
@@ -50,25 +51,17 @@ def latex_to_svg(latex_snippet):
 
     return svg_content
 
-def test_latex_to_svg():
-    """
-    Tests the latex_to_svg function.
-    """
-    tikz_code = r"""
-\begin{tikzcd}
-    A \arrow[r, "f"] \arrow[d, "g"'] & B \arrow[d, "h"] \\
-    C \arrow[r, "k"'] & D
-\end{tikzcd}
-"""
-    try:
-        svg_output = latex_to_svg(tikz_code)
-        assert svg_output.strip().startswith('<?xml')
-        assert svg_output.strip().endswith('</svg>')
-        with open('output.svg', 'w') as f:
-            f.write(svg_output)
-        print("Test passed: Successfully generated output.svg")
-    except (RuntimeError, AssertionError) as e:
-        print(f"Test failed: {repr(e)}")
-
 if __name__ == '__main__':
-    test_latex_to_svg()
+    parser = argparse.ArgumentParser(description='Convert a LaTeX snippet to an SVG file.')
+    parser.add_argument('latex_snippet', type=str, help='The LaTeX snippet to convert.')
+    parser.add_argument('output_filename', type=str, help='The name of the output SVG file (without extension).')
+    args = parser.parse_args()
+
+    try:
+        svg_output = latex_to_svg(args.latex_snippet)
+        output_filepath = f"{args.output_filename}.svg"
+        with open(output_filepath, 'w') as f:
+            f.write(svg_output)
+        print(f"Successfully generated {output_filepath}")
+    except RuntimeError as e:
+        print(f"An error occurred: {e}")

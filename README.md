@@ -15,11 +15,14 @@ This Python application converts LaTeX code snippets into SVG images. It's desig
 1.  **Prerequisites**: Make sure you have a LaTeX distribution (like TeX Live) and `pdf2svg` installed.
 2.  **Run the script**:
     ```bash
-    python3 main.py
+    python3 main.py "<latex_snippet>" <output_filename>
     ```
-3.  **Output**: The script will generate an `output.svg` file in the same directory.
+    For example:
+    ```bash
+    python3 main.py "$\\lambda$" the_lambda_image
+    ```
+3.  **Output**: The script will generate an `<output_filename>.svg` file in the same directory.
 
 ## Customization
 
 -   **Template**: You can modify the `template.tex` file to include different LaTeX packages or change the document setup.
--   **Input**: You can change the `tikz_code` variable in `main.py` to convert your own LaTeX snippets.
