@@ -23,6 +23,13 @@ This Python application converts LaTeX code snippets into SVG images. It's desig
     ```
 3.  **Output**: The script will generate an `<output_filename>.svg` file in the same directory.
 
+## Testing
+
+To run the tests, execute the following command:
+```bash
+python3 test_main.py
+```
+
 ## Customization
 
 -   **Template**: You can modify the `template.tex` file to include different LaTeX packages or change the document setup.
