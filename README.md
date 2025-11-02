@@ -1,6 +1,6 @@
 # LaTeX to SVG Converter
 
-This Python application converts LaTeX code snippets into SVG images. It's designed to be easily migratable to Cloudflare Workers.
+This Python application converts LaTeX code snippets into SVG images.
 
 ## How it works
 
@@ -12,7 +12,7 @@ This Python application converts LaTeX code snippets into SVG images. It's desig
 
 ## Usage
 
-1.  **Prerequisites**: Make sure you have a LaTeX distribution (like TeX Live) and `pdf2svg` installed.
+1.  **Prerequisites**: Make sure you have a LaTeX distribution (like TeX Live `apt install texlive-full`) and `pdf2svg` (`apt install pdf2svg`) installed.
 2.  **Run the script**:
     ```bash
     python3 main.py "<latex_snippet>" <output_filename>
