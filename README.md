@@ -19,7 +19,7 @@ This Python application converts LaTeX code snippets into SVG images. It's desig
     ```
     For example:
     ```bash
-    python3 main.py "$\\lambda$" the_lambda_image
+    python3 main.py "$\lambda$" the_lambda_image
     ```
 3.  **Output**: The script will generate an `<output_filename>.svg` file in the same directory.
 
